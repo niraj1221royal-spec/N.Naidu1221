@@ -233,6 +233,7 @@ header.hero{
     width:100%;
     max-width:500px;
     justify-self:center;
+  animation:panelGlow 1.8s ease;
     padding:18px;
     background:rgba(255,255,255,0.03);
     border:1px solid var(--line);
@@ -245,14 +246,59 @@ header.hero{
   }
 .photo-frame{
     width:100%;
-    aspect-ratio:0.95/1; overflow:hidden; border:1px solid var(--line); position:relative;
-  }
+    aspect-ratio:0.95/1;
+    overflow:hidden;
+    border:1px solid var(--line);
+    position:relative;
+}
+
+/* Glass Overlay */
+.photo-frame::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,0)
+    );
+    opacity:1;
+    animation:glassFade 1.6s ease forwards;
+    pointer-events:none;
+}
+
+/* Scanner */
+.photo-frame::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:-120%;
+    width:100%;
+    height:120%;
+
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(95,200,255,.12),
+        rgba(95,200,255,.9),
+        rgba(95,200,255,.12),
+        transparent
+    );
+
+    animation:scanner 1.7s ease forwards;
+    pointer-events:none;
+}
 .photo-frame img{
     width:100%;
     height:100%;
     object-fit:cover;
     object-position:center top;
-    filter:grayscale(20%) contrast(1.05);
+
+    filter:grayscale(100%) blur(12px);
+    opacity:0;
+    transform:scale(1.12);
+
+    animation:photoReveal 1.4s cubic-bezier(.22,1,.36,1) forwards;
 }
 .specs{
     margin-top:18px;
@@ -664,6 +710,66 @@ footer{
 
     .hero-grid{
         align-items:flex-start;
+    }
+
+}
+  @keyframes photoReveal{
+
+    0%{
+        opacity:0;
+        transform:scale(1.12);
+        filter:grayscale(100%) blur(12px);
+    }
+
+    60%{
+        opacity:.75;
+        filter:grayscale(80%) blur(4px);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+        filter:grayscale(20%) blur(0);
+    }
+
+}
+
+@keyframes scanner{
+
+    from{
+        top:-120%;
+    }
+
+    to{
+        top:120%;
+    }
+
+}
+
+@keyframes glassFade{
+
+    from{
+        opacity:1;
+    }
+
+    to{
+        opacity:0;
+    }
+
+}
+
+@keyframes panelGlow{
+
+    0%{
+        box-shadow:0 0 0 rgba(46,143,255,0);
+    }
+
+    60%{
+        box-shadow:0 0 35px rgba(46,143,255,.5);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(46,143,255,0);
     }
 
 }
