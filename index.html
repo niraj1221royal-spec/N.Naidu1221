@@ -417,19 +417,60 @@ header.hero{
     grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
     gap:22px;
 }
-  .card-image{
+.card-image{
     width:calc(100% + 44px);
     height:260px;
     margin:-26px -22px 18px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#111821;
-    border-bottom:1px solid var(--line);
+
+    position:relative;
     overflow:hidden;
+
+    background:#0f141b;
+    border-bottom:1px solid var(--line);
+  box-shadow:
+    inset 0 0 25px rgba(46,143,255,.08);
+}
+
+  /* Blue spotlight */
+.card-image::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(46,143,255,.12),
+            transparent 70%
+        );
+
+    opacity:.85;
+    pointer-events:none;
+}
+/* Premium CAD Overlay */
+.card-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(46,143,255,.10),
+            transparent 30%,
+            transparent 70%,
+            rgba(95,200,255,.08)
+        );
+
+    pointer-events:none;
 }
 
 .card-image img{
+
     width:100%;
     height:100%;
     object-fit:contain;
@@ -437,11 +478,33 @@ header.hero{
     padding:12px;
     display:block;
     cursor:pointer;
-    transition:transform .35s ease;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+
+   filter:
+    grayscale(90%)
+    brightness(.82)
+    contrast(1.25)
+    sepia(.10)
+    hue-rotate(180deg)
+    saturate(1.15)
+    drop-shadow(0 0 14px rgba(46,143,255,.28));
 }
 
 .card:hover .card-image img{
+
     transform:scale(1.03);
+
+filter:
+    grayscale(15%)
+    brightness(.96)
+    contrast(1.15)
+    sepia(.04)
+    hue-rotate(180deg)
+    saturate(1.05)
+    drop-shadow(0 0 22px rgba(46,143,255,.55));
 }
   .card{
     position:relative;
@@ -456,7 +519,16 @@ header.hero{
     border-style:solid; border-width:0 26px 26px 0; border-color:transparent var(--gm-700) transparent transparent;
     transition:.3s;
   }
-  .card:hover{border-color:var(--blue-dim); transform:translateY(-3px); background:rgba(46,143,255,0.045);}
+ .card:hover{
+    border-color:var(--blue);
+    transform:translateY(-5px);
+
+    background:rgba(46,143,255,.05);
+
+    box-shadow:
+        0 0 30px rgba(46,143,255,.15),
+        inset 0 0 25px rgba(46,143,255,.04);
+}
   .card:hover::after{border-color:transparent var(--blue) transparent transparent;}
   .card .tag{font-family:'JetBrains Mono'; font-size:10.5px; color:var(--text-lo); letter-spacing:.1em;}
   .card h3{font-size:17.5px; margin:10px 0 8px; font-weight:600;}
