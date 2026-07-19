@@ -156,6 +156,73 @@ nav{
     backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line);
 }
+    .nav-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.hamburger{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:6px;
+
+    background:none;
+    border:none;
+
+    cursor:pointer;
+
+    padding:0;
+}
+
+.hamburger span{
+
+    display:block;
+
+    width:28px;
+    height:2px;
+
+    background:var(--text-hi);
+
+    transition:.35s ease;
+
+    transform-origin:center;
+
+}
+
+.hamburger:hover span{
+
+    background:var(--orange-glow);
+
+    box-shadow:0 0 8px var(--orange-glow);
+
+}
+    .hamburger.active span:nth-child(1){
+
+transform:
+translateY(8px)
+rotate(45deg);
+
+}
+
+.hamburger.active span:nth-child(2){
+
+opacity:0;
+
+}
+
+.hamburger.active span:nth-child(3){
+
+transform:
+translateY(-8px)
+rotate(-45deg);
+
+}
   .brand{
     display:flex;
     align-items:center;
@@ -893,7 +960,257 @@ footer{
     }
 
 }
+#overlay{
 
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.55);
+
+backdrop-filter:blur(5px);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.35s;
+
+z-index:80;
+
+}
+
+#overlay.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+#researchPanel{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:430px;
+
+height:100vh;
+
+background:rgba(10,10,10,.97);
+
+backdrop-filter:blur(18px);
+
+border-right:1px solid var(--line);
+
+transform:translateX(-100%);
+
+transition:.45s cubic-bezier(.22,1,.36,1);
+
+z-index:90;
+
+overflow-y:auto;
+
+box-shadow:
+0 0 45px rgba(255,122,0,.15);
+
+}
+
+#researchPanel.open{
+
+transform:translateX(0);
+
+}
+    #researchPanel{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:430px;
+
+    height:100vh;
+
+    background:rgba(10,10,10,.97);
+
+    backdrop-filter:blur(18px);
+
+    border-right:1px solid var(--line);
+
+    transform:translateX(-100%);
+
+    transition:.45s cubic-bezier(.22,1,.36,1);
+
+    z-index:90;
+
+    overflow-y:auto;
+
+    box-shadow:0 0 45px rgba(255,122,0,.15);
+
+}
+
+#researchPanel.open{
+
+    transform:translateX(0);
+
+}
+
+/* PASTE THE NEW CODE HERE */
+
+.panel-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:28px;
+
+    border-bottom:1px solid var(--line);
+
+}
+
+.panel-header h2{
+
+    font-size:22px;
+
+    color:var(--orange-glow);
+
+}
+
+.panel-header p{
+
+    font-family:"JetBrains Mono";
+
+    font-size:12px;
+
+    color:var(--text-lo);
+
+    margin-top:6px;
+
+}
+
+#closePanel{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#closePanel:hover{
+
+    color:var(--orange-glow);
+
+}
+    #paperContainer{
+    padding:28px;
+}
+
+.paper-card{
+
+    border:1px solid var(--line);
+
+    padding:22px;
+
+    background:rgba(255,255,255,.03);
+
+    transition:.3s;
+
+}
+
+.paper-card:hover{
+
+    border-color:var(--orange);
+
+    box-shadow:0 0 22px rgba(255,122,0,.18);
+
+}
+
+.paper-year{
+
+    color:var(--orange-glow);
+
+    font-family:"JetBrains Mono";
+
+    font-size:11px;
+
+    letter-spacing:.12em;
+
+}
+
+.paper-card h3{
+
+    margin:12px 0;
+
+    font-size:20px;
+
+}
+
+.paper-card p{
+
+    color:var(--text-mid);
+
+    line-height:1.7;
+
+    font-size:14px;
+
+}
+
+.paper-tags{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin:18px 0;
+
+}
+
+.paper-tags span{
+
+    border:1px solid var(--line);
+
+    padding:6px 10px;
+
+    font-size:11px;
+
+    font-family:"JetBrains Mono";
+
+}
+
+.paper-btn{
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    color:var(--orange-glow);
+
+    text-decoration:none;
+
+    font-family:"JetBrains Mono";
+
+}
+
+/* CONTINUE WITH THE REST OF YOUR CSS */
+    
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; animation:none !important;}
   }
@@ -976,10 +1293,27 @@ footer{
 <div class="grid-bg"></div>
 <div id="glow"></div>
 <nav>
-<a href="#top" class="brand">
-    <span class="tick"></span>
-    <span class="brand-name">NIRAJ NAIDU</span>
-</a>
+<div class="nav-left">
+
+    <button class="hamburger" id="archiveBtn">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+    <a href="#top" class="brand">
+
+        <span class="tick"></span>
+
+        <span class="brand-name">
+            NIRAJ NAIDU
+        </span>
+
+    </a>
+
+</div>
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
@@ -989,6 +1323,63 @@ footer{
 </ul>
 <a class="nav-cta" href="#contact">Contact</a>
 </nav>
+    <div id="overlay"></div>
+
+<aside id="researchPanel">
+
+<div class="panel-header">
+
+<div>
+
+<h2>Research Archive</h2>
+
+<p>Academic Publications</p>
+
+</div>
+
+<button id="closePanel">
+
+✕
+
+</button>
+
+</div>
+
+<div id="paperContainer">
+
+<div class="paper-card">
+
+<span class="paper-year">2026</span>
+
+<h3>
+Life Cycle Assessment of CNC Machining and Metal Additive Manufacturing
+</h3>
+
+<p>
+Master's thesis comparing sustainability, energy consumption,
+material utilization and environmental impact of conventional CNC
+manufacturing versus metal additive manufacturing.
+</p>
+
+<div class="paper-tags">
+
+<span>Research</span>
+<span>Sustainability</span>
+<span>Additive Manufacturing</span>
+
+</div>
+
+<a href="papers/Life_Cycle_Assessment.pdf"
+   class="paper-btn"
+   target="_blank">
+    View Research →
+</a>
+
+</div>
+
+</div>
+
+</aside>
 <header class="hero" id="top">
 <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
 <div class="wrap hero-grid">
@@ -1496,7 +1887,7 @@ sections.forEach(section=>{
 
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".lightbox-close");
+    const lightboxCloseBtn = document.querySelector(".lightbox-close");
 
     document.querySelectorAll(".card-image img").forEach(img => {
 
@@ -1519,7 +1910,7 @@ sections.forEach(section=>{
 
     }
 
-    closeBtn.addEventListener("click", closeLightbox);
+    lightboxCloseBtn.addEventListener("click", closeLightbox);
 
     lightbox.addEventListener("click", function(e) {
 
@@ -1540,7 +1931,50 @@ sections.forEach(section=>{
         }
 
     });
+const burger = document.getElementById("archiveBtn");
+const panel = document.getElementById("researchPanel");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closePanel");
 
+function openPanel(){
+
+    burger.classList.add("active");
+    panel.classList.add("open");
+    overlay.classList.add("show");
+    document.body.style.overflow="hidden";
+
+}
+
+function closePanel(){
+
+    burger.classList.remove("active");
+    panel.classList.remove("open");
+    overlay.classList.remove("show");
+    document.body.style.overflow="";
+
+}
+
+burger.addEventListener("click",()=>{
+
+    if(panel.classList.contains("open")){
+        closePanel();
+    }else{
+        openPanel();
+    }
+
+});
+
+closeBtn.addEventListener("click",closePanel);
+
+overlay.addEventListener("click",closePanel);
+
+document.addEventListener("keydown",e=>{
+
+    if(e.key==="Escape"){
+        closePanel();
+    }
+
+});
 </script>
 
 </body>
