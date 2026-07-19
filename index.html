@@ -479,28 +479,47 @@ transparent
     letter-spacing:-0.02em;
 }
   section{position:relative; z-index:2; padding:80px 0;}
-  .section-head{margin-bottom:52px;}
+ .portfolio-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:20px;
+}
+
+.portfolio-head .section-head{
+    margin-bottom:0;
+}
     /* =======================================
    Portfolio Header + Download Switch
 ======================================= */
 
 .portfolio-head{
-
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
-    gap:25px;
-    flex-wrap:wrap;
+    align-items:center;
+    width:100%;
+    gap:30px;
+    margin-bottom:40px;
+}
 
+.portfolio-head .section-head{
+    margin-bottom:0;
+    flex:1;
 }
 
 .portfolio-download{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
 
-    display:flex;
     align-items:center;
+    justify-content:center;
     gap:12px;
 
-    padding:12px 18px;
+    padding:14px 22px;
+
+    min-width:230px;
+    height:48px;
 
     text-decoration:none;
 
@@ -510,11 +529,37 @@ transparent
 
     color:var(--text-hi);
 
-    border:1px solid var(--line);
+    border:1px solid var(--orange);
 
-    background:rgba(255,255,255,.03);
+    background:rgba(255,122,0,.08);
 
     transition:.3s ease;
+
+    position:relative;
+    z-index:10;
+}
+
+.portfolio-download:hover{
+
+    background:var(--orange);
+    color:#000;
+
+    box-shadow:
+    0 0 25px rgba(255,122,0,.5);
+
+}
+
+.switch-dot{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+    0 0 10px var(--orange);
 
 }
 
@@ -873,11 +918,17 @@ footer{
 }
   
 @media (max-width:600px){
-    .portfolio-head{
+
+.portfolio-head{
 
     flex-direction:column;
-    align-items:flex-start;
+    align-items:stretch;
+}
 
+.portfolio-download{
+
+    width:100%;
+    min-width:100%;
 }
 
 .portfolio-download{
@@ -1814,20 +1865,31 @@ html{
 
 <div class="portfolio-head">
 
-    <div class="section-head reveal">
-        <div class="eyebrow">04 / Portfolio</div>
-        <h2>CAD & Hydraulic Systems</h2>
-    </div>
+<div class="portfolio-head">
 
-    <a class="portfolio-download"
-       href="Design_Portfolio.pdf"
-       download
-       target="_blank">
+<div class="section-head reveal">
 
-        <span class="switch-dot"></span>
-        DOWNLOAD PORTFOLIO
+<div class="eyebrow">
+04 / Portfolio
+</div>
 
-    </a>
+<h2>
+CAD & Hydraulic Systems
+</h2>
+
+</div>
+
+
+<a class="portfolio-download"
+href="Design_Portfolio.pdf"
+download>
+
+<span class="switch-dot"></span>
+
+DOWNLOAD PORTFOLIO
+
+</a>
+
 
 </div>
 
