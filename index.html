@@ -396,26 +396,39 @@ header.hero{
     content:"";
     position:absolute;
 
-    width:180%;
-    height:40%;
+    left:-80%;
+    top:-80%;
 
-    left:-40%;
-    top:-30%;
+    width:220%;
+    height:220%;
 
     background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,140,0,.12),
-        rgba(255,140,0,.9),
-        rgba(255,140,0,.12),
-        transparent
+        135deg,
+        transparent 35%,
+        rgba(255,140,0,.12) 45%,
+        rgba(255,140,0,.9) 50%,
+        rgba(255,140,0,.12) 55%,
+        transparent 65%
     );
 
-    transform:rotate(-25deg);
+    transform:translate(-120%,-120%);
 
-    animation:diagonalScanner 1.8s ease forwards;
+    animation:diagonalScanner 1.7s ease forwards;
 
     pointer-events:none;
+}
+
+
+@keyframes diagonalScanner{
+
+    0%{
+        transform:translate(-120%,-120%);
+    }
+
+    100%{
+        transform:translate(120%,120%);
+    }
+
 }
 .photo-frame img{
     width:100%;
