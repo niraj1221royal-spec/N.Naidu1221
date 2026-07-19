@@ -1157,7 +1157,131 @@ transform:translateX(0);
     box-shadow:0 0 45px rgba(255,122,0,.15);
 
 }
+/* ======================================
+   MOBILE RESEARCH PANEL FIX
+====================================== */
 
+@media (max-width:600px){
+
+    #researchPanel{
+
+        width:92vw;
+        max-width:360px;
+
+        height:100vh;
+
+        overflow-y:auto;
+
+    }
+
+
+    .panel-header{
+
+        padding:20px;
+
+    }
+
+
+    .panel-header h2{
+
+        font-size:18px;
+
+    }
+
+
+    .panel-header p{
+
+        font-size:10px;
+
+    }
+
+
+    #closePanel{
+
+        font-size:24px;
+
+    }
+
+
+    #paperContainer{
+
+        padding:16px;
+
+    }
+
+
+    .paper-card{
+
+        padding:16px;
+
+    }
+
+
+    .paper-card h3{
+
+        font-size:16px;
+
+        line-height:1.4;
+
+    }
+
+
+    .paper-card p{
+
+        font-size:13px;
+
+        line-height:1.6;
+
+    }
+
+
+    .paper-tags span{
+
+        font-size:9px;
+
+        padding:5px 8px;
+
+    }
+
+
+    .paper-btn{
+
+        font-size:11px;
+
+    }
+
+}
+
+    @media (max-width:360px){
+
+    #researchPanel{
+
+        width:100vw;
+
+    }
+
+
+    .panel-header{
+
+        padding:16px;
+
+    }
+
+
+    #paperContainer{
+
+        padding:12px;
+
+    }
+
+
+    .paper-card{
+
+        padding:14px;
+
+    }
+
+}
 #researchPanel.open{
 
     transform:translateX(0);
