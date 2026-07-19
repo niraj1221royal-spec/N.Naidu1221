@@ -456,10 +456,9 @@ transparent
     font-weight:700;
     font-family:'JetBrains Mono', monospace;
     text-align:right;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    max-width:65%;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    max-width:70%;
 }
 
 .specs div b a{
@@ -828,12 +827,23 @@ footer{
     }
 
     header.hero{
-        padding-top:150px;
+        padding-top:190px;   /* increased from 150px */
+        padding-bottom:70px;
+        min-height:auto;
     }
 
     .hero-grid{
         grid-template-columns:1fr 380px;
-        gap:40px;
+        gap:55px;
+        align-items:center;
+    }
+
+    .hero-panel{
+        margin-top:25px;
+    }
+
+    .hero-panel::before{
+        top:-14px;   /* gives FIG.01 more breathing space */
     }
 
     .hero h1{
@@ -841,7 +851,6 @@ footer{
     }
 
 }
-
 
 @media (max-width:950px){
 
@@ -911,7 +920,16 @@ footer{
 }
   
 @media (max-width:600px){
+    
+.specs div b{
+    font-size:12px;
+    max-width:60%;
+}
 
+.specs div:nth-child(3) b{
+    letter-spacing:-0.03em;
+}
+    
 .portfolio-head{
     display:flex;
     flex-direction:column;
@@ -949,8 +967,8 @@ footer{
     }
 
     .hero{
-       padding-top:120px;
-       padding-bottom:25px;
+       padding-top:145px;
+       padding-bottom:35px;
     }
 
     .hero h1{
