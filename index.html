@@ -485,6 +485,83 @@ transparent
 }
   section{position:relative; z-index:2; padding:80px 0;}
   .section-head{margin-bottom:52px;}
+    /* =======================================
+   Portfolio Header + Download Switch
+======================================= */
+
+.portfolio-head{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:25px;
+    flex-wrap:wrap;
+
+}
+
+.portfolio-download{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:12px 18px;
+
+    text-decoration:none;
+
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
+    letter-spacing:.08em;
+
+    color:var(--text-hi);
+
+    border:1px solid var(--line);
+
+    background:rgba(255,255,255,.03);
+
+    transition:.3s ease;
+
+}
+
+.switch-dot{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+        0 0 8px var(--orange),
+        0 0 18px rgba(255,122,0,.45);
+
+    transition:.3s;
+
+}
+
+.portfolio-download:hover{
+
+    border-color:var(--orange);
+
+    background:rgba(255,122,0,.08);
+
+    color:var(--orange-glow);
+
+    box-shadow:
+        0 0 18px rgba(255,122,0,.18);
+
+}
+
+.portfolio-download:hover .switch-dot{
+
+    transform:scale(1.25);
+
+    box-shadow:
+        0 0 12px var(--orange-glow),
+        0 0 28px rgba(255,122,0,.7);
+
+}
   .section-head h2{font-size:clamp(30px,3.4vw,44px); margin-top:14px; text-transform:uppercase;}
   .section-head .num{font-family:'JetBrains Mono'; color:var(--text-lo); font-size:12px;}
 
@@ -801,6 +878,19 @@ footer{
 }
   
 @media (max-width:600px){
+    .portfolio-head{
+
+    flex-direction:column;
+    align-items:flex-start;
+
+}
+
+.portfolio-download{
+
+    width:100%;
+    justify-content:center;
+
+}
 
     nav{
         padding:10px 14px;
@@ -1763,10 +1853,7 @@ html{
 </section>
 <section id="portfolio">
 <div class="wrap">
-<div class="section-head reveal">
 <div class="eyebrow">04 / Portfolio</div>
-<h2>CAD &amp; hydraulic systems</h2>
-</div>
 <div class="proj-grid">
 
     <div class="card reveal">
