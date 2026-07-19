@@ -554,29 +554,17 @@ transparent
     width:12px;
     height:12px;
 
-    border-radius:50%;
-
     background:var(--orange);
 
-    box-shadow:
-    0 0 10px var(--orange);
+    border-radius:0;
 
-}
-
-.switch-dot{
-
-    width:12px;
-    height:12px;
-
-    border-radius:50%;
-
-    background:var(--orange);
+    transform:rotate(45deg);
 
     box-shadow:
         0 0 8px var(--orange),
         0 0 18px rgba(255,122,0,.45);
 
-    transition:.3s;
+    transition:.3s ease;
 
 }
 
@@ -595,7 +583,7 @@ transparent
 
 .portfolio-download:hover .switch-dot{
 
-    transform:scale(1.25);
+    transform:rotate(45deg) scale(1.25);
 
     box-shadow:
         0 0 12px var(--orange-glow),
@@ -664,6 +652,15 @@ transparent
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
     gap:22px;
+}
+    .portfolio-head{
+    position:relative;
+    z-index:5;
+}
+
+.proj-grid{
+    clear:both;
+    width:100%;
 }
 .card-image{
     width:calc(100% + 44px);
@@ -921,9 +918,10 @@ footer{
 
 .portfolio-head{
 
+    display:flex;
     flex-direction:column;
     align-items:stretch;
-}
+    width:100%;
 
 .portfolio-download{
 
@@ -1163,23 +1161,22 @@ transform:translateX(0);
 
 @media (max-width:600px){
 
-    #researchPanel{
+#researchPanel{
 
-        width:92vw;
-        max-width:360px;
-
-        height:100vh;
+        width:88vw;
+        max-width:340px;
+        height:100dvh;
 
         overflow-y:auto;
 
-    }
+}
 
 
-    .panel-header{
+.panel-header{
 
-        padding:20px;
+        padding:16px;
 
-    }
+}
 
 
     .panel-header h2{
@@ -1210,11 +1207,13 @@ transform:translateX(0);
     }
 
 
-    .paper-card{
+.paper-card{
 
-        padding:16px;
+        padding:14px;
+        width:100%;
+        overflow-wrap:break-word;
 
-    }
+}
 
 
     .paper-card h3{
@@ -1989,8 +1988,6 @@ html{
 
 <div class="portfolio-head">
 
-<div class="portfolio-head">
-
 <div class="section-head reveal">
 
 <div class="eyebrow">
@@ -2013,7 +2010,6 @@ download>
 DOWNLOAD PORTFOLIO
 
 </a>
-
 
 </div>
 
