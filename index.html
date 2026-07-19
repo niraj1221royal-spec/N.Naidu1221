@@ -1647,6 +1647,55 @@ html{
     }
 
 }
+    /* =====================================
+   Portfolio Startup Glow Animation
+===================================== */
+
+.card.startup-glow{
+    animation: portfolioStartupGlow 3s ease-out;
+}
+
+@keyframes portfolioStartupGlow{
+
+    0%{
+        border-color:var(--orange-glow);
+        background:rgba(255,122,0,.12);
+
+        box-shadow:
+            0 0 0 rgba(255,122,0,0),
+            inset 0 0 0 rgba(255,122,0,0);
+
+        transform:translateY(0);
+    }
+
+    35%{
+        border-color:var(--orange-glow);
+
+        box-shadow:
+            0 0 45px rgba(255,122,0,.65),
+            0 0 90px rgba(255,122,0,.25),
+            inset 0 0 30px rgba(255,122,0,.15);
+
+        transform:translateY(-5px);
+    }
+
+    70%{
+        box-shadow:
+            0 0 25px rgba(255,122,0,.35),
+            inset 0 0 15px rgba(255,122,0,.08);
+
+    }
+
+    100%{
+        border-color:var(--line);
+        background:rgba(255,255,255,.025);
+
+        box-shadow:none;
+
+        transform:translateY(0);
+    }
+
+}
 </style>
 </head>
 <body>
@@ -2457,6 +2506,34 @@ document.addEventListener("keydown",e=>{
     if(e.key==="Escape"){
         closePanel();
     }
+
+});
+    /* =====================================
+   Portfolio Initial Glow Effect
+===================================== */
+
+window.addEventListener("load",()=>{
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card,index)=>{
+
+        setTimeout(()=>{
+
+            card.classList.add("startup-glow");
+
+        }, index * 120);
+
+    });
+
+
+    setTimeout(()=>{
+
+        cards.forEach(card=>{
+            card.classList.remove("startup-glow");
+        });
+
+    },3500);
 
 });
 </script>
